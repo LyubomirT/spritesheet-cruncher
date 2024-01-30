@@ -14,7 +14,7 @@ def split_image(image_path, cell_size, output_dir):
    for i in range(num_cells_height):
        for j in range(num_cells_width):
            cell = image.crop((j * cell_size, i * cell_size, (j + 1) * cell_size, (i + 1) * cell_size))
-           cell_filename = f"cell_{i}_{j}.jpg"
+           cell_filename = f"cell_{i}_{j}.png"
            cell.save(os.path.join(output_dir, cell_filename))
 
 if __name__ == "__main__":
