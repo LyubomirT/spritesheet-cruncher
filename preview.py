@@ -9,37 +9,30 @@ def preview_image(image_path, cell_size, line_color):
     image = Image.open(image_path)
     width, height = image.size
 
-    # Calculate number of cells and remainder space
     num_cells_width = max(0, (width - 1) // cell_size)
     num_cells_height = max(0, (height - 1) // cell_size)
     remainder_width = width % cell_size
     remainder_height = height % cell_size
 
-    # Draw lines on the image
     draw = ImageDraw.Draw(image)
     for i in range(1, num_cells_height):
         draw.line([(0, i * cell_size), (width, i * cell_size)], fill=line_color, width=1)
     for j in range(1, num_cells_width):
         draw.line([(j * cell_size, 0), (j * cell_size, height)], fill=line_color, width=1)
 
-    # Draw lines for remaining space at the edges
     draw.line([(width - remainder_width, 0), (width, 0)], fill=line_color, width=1)
     draw.line([(0, height - remainder_height), (width, height - remainder_height)], fill=line_color, width=1)
     if remainder_width and remainder_height:
         draw.line([(width - remainder_width, height - remainder_height), (width, height)], fill=line_color, width=1)
 
-    # Fix right border (adjust line based on remainder width)
     if remainder_width:
         draw.line([(width, 0), (width, height - remainder_height)], fill=line_color, width=1)
 
-    # Create Tkinter window
     root = tk.Tk()
     root.title("Image Preview")
 
-    # Resize window to fit the image
     root.geometry("%dx%d" % (width, height))
 
-    # Create a label to display the image
     image_tk = ImageTk.PhotoImage(image)
     label = ttk.Label(root, image=image_tk)
     label.pack()
