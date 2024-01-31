@@ -49,5 +49,3 @@ This project is licensed under the BSD 3-Clause License. See the LICENSE: LICENS
 You can contact me by creating a Discussion on the repository or by DMing me on Discord (@lyubomirt). I will try to respond as soon as possible, but I can't guarantee that I will respond immediately. If you want to contact me about a bug, please open an issue instead. Additionally, you can join my Discord server: [https://discord.gg/dwCE2RdUZ3](https://discord.gg/dwCE2RdUZ3) since I'm usually online there.
 
 ### We crank spritesheets!
-
-I hope this is helpful! Let me know if you have any other questions.
